@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  ArrowRight, 
-  Sliders, 
-  Sparkles, 
-  CheckCircle2, 
-  Check, 
-  ShieldCheck, 
-  Code2, 
-  Star 
+import {
+  ArrowRight,
+  Sliders,
+  Sparkles,
+  CheckCircle2,
+  Check,
+  ShieldCheck,
+  Code2,
+  Star
 } from 'lucide-react';
 import { COMPANY_INFO } from '../constants/content';
 import { Link } from '../context/RouterContext';
@@ -40,7 +40,24 @@ export default function Hero() {
 
       {/* Main Container */}
       <div className="relative z-10 max-w-container-max mx-auto w-full flex flex-col items-center">
-        
+
+        {/* Top Floating Tagline Pill (Humanto style quote badge) */}
+        <motion.div
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-5"
+        >
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 border border-slate-200 shadow-sm backdrop-blur-md">
+            <span className="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs">
+              ★
+            </span>
+            <span className="font-medium text-sm text-text-main">
+              &ldquo;Never wait 4 days for a developer to change a banner again!&rdquo;
+            </span>
+          </div>
+        </motion.div>
+
         {/* Centered Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -61,7 +78,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-body text-base sm:text-lg md:text-xl text-text-muted leading-relaxed text-center max-w-2xl mt-4 mb-8"
         >
-          Never wait days for a developer to change a banner, price, or copy again. Every build includes a custom admin panel so you stay in total control.
+          Scale your digital business without developer dependency. Every web application, mobile platform, and digital system we engineer comes standard with a dedicated Admin Panel — so you update content, pricing, and features in seconds.
         </motion.p>
 
         {/* CTAs with Playful Hand-Drawn Annotation Arrow */}
@@ -94,18 +111,18 @@ export default function Hero() {
 
           {/* Playful Handwritten Vector Arrow Annotation (Humanto "It's free!" concept -> "100% Code Ownership!") */}
           <div className="hidden lg:flex items-center gap-1.5 absolute -right-48 top-1 pointer-events-none select-none">
-            <svg 
-              className="w-12 h-10 text-slate-700 transform -rotate-12" 
-              viewBox="0 0 50 40" 
-              fill="none" 
+            <svg
+              className="w-12 h-10 text-slate-700 transform -rotate-12"
+              viewBox="0 0 50 40"
+              fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path 
-                d="M45 5C35 8 18 15 10 32M10 32L6 23M10 32L19 32" 
-                stroke="currentColor" 
-                strokeWidth="2.2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
+              <path
+                d="M45 5C35 8 18 15 10 32M10 32L6 23M10 32L19 32"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
             <span className="font-mono text-xs font-bold text-slate-800 bg-amber-200/90 border border-amber-300 px-2.5 py-1 rounded-full shadow-xs transform -rotate-2">
