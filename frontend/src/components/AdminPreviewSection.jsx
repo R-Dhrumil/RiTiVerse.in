@@ -43,12 +43,8 @@ export default function AdminPreviewSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 w-fit mb-3">
-            <Sparkles className="w-4 h-4 text-amber-600" />
-            <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-              The Main Selling Point
-            </span>
-          </div>
+          
+          
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
             Total Admin Control in Your Hands
           </h2>
