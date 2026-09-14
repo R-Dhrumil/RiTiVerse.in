@@ -41,23 +41,6 @@ export default function Hero() {
       {/* Main Container */}
       <div className="relative z-10 max-w-container-max mx-auto w-full flex flex-col items-center">
         
-        {/* Top Floating Tagline Pill (Humanto style quote badge) */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-5"
-        >
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 border border-slate-200 shadow-sm backdrop-blur-md">
-            <span className="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs">
-              ★
-            </span>
-            <span className="font-medium text-sm text-text-main">
-              &ldquo;Never wait 4 days for a developer to change a banner again!&rdquo;
-            </span>
-          </div>
-        </motion.div>
-
         {/* Centered Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -78,7 +61,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-body text-base sm:text-lg md:text-xl text-text-muted leading-relaxed text-center max-w-2xl mt-4 mb-8"
         >
-          Scale your digital business without developer dependency. Every web application, mobile platform, and digital system we engineer comes standard with a dedicated Admin Panel — so you update content, pricing, and features in seconds.
+          Never wait days for a developer to change a banner, price, or copy again. Every build includes a custom admin panel so you stay in total control.
         </motion.p>
 
         {/* CTAs with Playful Hand-Drawn Annotation Arrow */}
