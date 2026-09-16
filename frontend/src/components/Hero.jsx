@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
-  Sliders,
   Sparkles,
   CheckCircle2,
   Check,
@@ -14,11 +13,6 @@ import { COMPANY_INFO } from '../constants/content';
 import { Link } from '../context/RouterContext';
 
 export default function Hero() {
-  const scrollToAdmin = (e) => {
-    e.preventDefault();
-    const el = document.getElementById('admin-control');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 
   const marqueeItems = [
     'Instant edits for text, prices, and promo banners',
@@ -41,22 +35,6 @@ export default function Hero() {
       {/* Main Container */}
       <div className="relative z-10 max-w-container-max mx-auto w-full flex flex-col items-center">
 
-        {/* Top Floating Tagline Pill (Humanto style quote badge) */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-5"
-        >
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/95 border border-slate-200 shadow-sm backdrop-blur-md">
-            <span className="w-6 h-6 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs">
-              ★
-            </span>
-            <span className="font-medium text-sm text-text-main">
-              &ldquo;Never wait 4 days for a developer to change a banner again!&rdquo;
-            </span>
-          </div>
-        </motion.div>
 
         {/* Centered Headline */}
         <motion.h1
@@ -78,67 +56,60 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-body text-base sm:text-lg md:text-xl text-text-muted leading-relaxed text-center max-w-2xl mt-4 mb-8"
         >
-          Run your business online without waiting on developers for simple changes. Every web app and platform we build comes standard with an easy Admin Panel—so you can edit text, update prices, and manage customer inquiries in seconds.
+          Never wait days on a developer for simple changes. We build custom web platforms with an easy Admin Panel—so you can update text, prices, and banners in seconds.
         </motion.p>
 
         {/* CTAs with Playful Hand-Drawn Annotation Arrow */}
+        {/* CTA with Playful Hand-Drawn Curly Arrow Annotation */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row items-center gap-4 relative mb-7"
+          className="flex items-center justify-center relative mb-7"
         >
-          {/* Primary Pill Button (Humanto style with circular arrow indicator) */}
-          <Link
-            to="/contact"
-            className="group relative bg-slate-950 hover:bg-slate-900 text-white font-label-md text-base px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:shadow-slate-950/20 transition-all flex items-center gap-3 font-bold cursor-pointer card-hover-lift"
-          >
-            <span>Book Free Strategy Call</span>
-            <span className="w-7 h-7 rounded-full bg-amber-400 group-hover:bg-amber-300 text-slate-950 flex items-center justify-center transition-colors">
-              <ArrowRight className="w-4 h-4" />
-            </span>
-          </Link>
-
-          {/* Secondary Pill Button */}
-          <a
-            href="#admin-control"
-            onClick={scrollToAdmin}
-            className="bg-white/90 backdrop-blur-sm border border-slate-300 hover:border-text-main text-text-main font-label-md text-base px-7 py-4 rounded-full hover:bg-surface-container-low transition-all font-semibold cursor-pointer shadow-sm flex items-center gap-2 card-hover-lift"
-          >
-            <Sliders className="w-4 h-4 text-amber-600" />
-            <span>Try Interactive Admin Demo</span>
-          </a>
-
-          {/* Playful Handwritten Vector Arrow Annotation (Humanto "It's free!" concept -> "100% Code Ownership!") */}
-          <div className="hidden lg:flex items-center gap-1.5 absolute -right-48 top-1 pointer-events-none select-none">
-            <svg
-              className="w-12 h-10 text-slate-700 transform -rotate-12"
-              viewBox="0 0 50 40"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          {/* Primary Pill Button with Aligned Annotation */}
+          <div className="relative inline-flex items-center">
+            <Link
+              to="/contact"
+              className="group relative bg-slate-950 hover:bg-slate-900 text-white font-label-md text-base px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:shadow-slate-950/20 transition-all flex items-center gap-3 font-bold cursor-pointer card-hover-lift"
             >
-              <path
-                d="M45 5C35 8 18 15 10 32M10 32L6 23M10 32L19 32"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="font-mono text-xs font-bold text-slate-800 bg-amber-200/90 border border-amber-300 px-2.5 py-1 rounded-full shadow-xs transform -rotate-2">
-              100% Code Ownership!
-            </span>
+              <span>Book Strategy Call</span>
+              <span className="w-7 h-7 rounded-full bg-amber-400 group-hover:bg-amber-300 text-slate-950 flex items-center justify-center transition-colors">
+                <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
+
+            {/* Playful Handwritten Curly Arrow & Aligned Capsule Annotation */}
+            <div className="hidden md:flex items-center gap-2 absolute left-full ml-3.5 top-1/2 -translate-y-1/2 pointer-events-none select-none">
+              <svg
+                className="w-14 h-8 text-slate-700"
+                viewBox="0 0 60 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M56 16 C46 16 38 7 30 7 C22 7 20 16 23 21 C26 26 34 25 34 17 C34 9 18 11 6 16 M6 16 L14 10 M6 16 L13 22"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="inline-block font-mono text-lg font-bold text-slate-800 whitespace-nowrap transform -rotate-6 italic -translate-y-2">
+                100% <b>free</b>
+              </span>
+            </div>
           </div>
         </motion.div>
 
         {/* Social Proof & Rating Stack (Humanto style) */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col sm:flex-row items-center gap-3 mb-10 text-center"
         >
-          {/* Overlapping Avatar Stack */}
+          {/* Overlapping Avatar Stack 
           <div className="flex items-center -space-x-2.5">
             <span className="inline-block w-8 h-8 rounded-full bg-slate-800 text-amber-300 border-2 border-white flex items-center justify-center text-xs font-bold shadow-xs">
               AK
@@ -165,6 +136,7 @@ export default function Hero() {
             </span>
           </div>
         </motion.div>
+         */}
 
         {/* Infinite Marquee Strip of Core Business Benefits */}
         <div className="w-full overflow-hidden py-8 mt-4 border-y border-slate-200/70 relative">
@@ -189,10 +161,10 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full max-w-4xl mt-12 pt-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full max-w-4xl mt-4 pt-4"
         >
           {/* Pillar 1 */}
-          <div className="flex items-start gap-3.5">
+          <div className="flex items-start gap-3">
             <span className="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
               <Check className="w-3.5 h-3.5 stroke-[3]" />
             </span>
