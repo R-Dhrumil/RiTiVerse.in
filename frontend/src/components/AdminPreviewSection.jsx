@@ -43,13 +43,17 @@ export default function AdminPreviewSection() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto mb-12"
         >
-          
-          
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-slate-200 w-fit mb-3 shadow-xs">
+            <Sliders className="w-4 h-4 text-amber-600" />
+            <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
+              Interactive Preview
+            </span>
+          </div>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
-            Total Admin Control in Your Hands
+            Tailored Admin Dashboards
           </h2>
           <p className="font-body text-base sm:text-lg text-text-muted mt-3">
-            Every build includes a custom-engineered Admin Dashboard. Try the interactive demo below to see how effortless management feels.
+            Every build includes a custom-engineered Admin Console. Test the interactive preview below to see how direct management works.
           </p>
         </motion.div>
 
@@ -146,16 +150,16 @@ export default function AdminPreviewSection() {
                       />
                       <div className="flex gap-2 mt-3">
                         <button
-                          onClick={() => setHeroHeading('High-Velocity Custom Digital Solutions')}
+                          onClick={() => setHeroHeading('Enterprise Software Solutions for Modern Scale')}
                           className="text-sm px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-md font-semibold text-text-main transition-colors cursor-pointer"
                         >
-                          Preset 1: High-Velocity
+                          Example: Enterprise SaaS
                         </button>
                         <button
-                          onClick={() => setHeroHeading('Scalable IT Systems Engineered For Growth')}
+                          onClick={() => setHeroHeading('High-Performance Digital Commerce Platform')}
                           className="text-sm px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-md font-semibold text-text-main transition-colors cursor-pointer"
                         >
-                          Preset 2: Scalable IT
+                          Example: E-Commerce
                         </button>
                       </div>
                     </div>

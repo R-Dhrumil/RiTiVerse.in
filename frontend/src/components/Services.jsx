@@ -51,14 +51,14 @@ export default function Services() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-3">
             <Layers className="w-4 h-4 text-amber-600" />
             <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-              Core Offerings
+              What We Build
             </span>
           </div>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
-            Engineered Software. Dedicated Admin.
+            Custom Web Software with Easy Admin Control
           </h2>
           <p className="font-body text-base sm:text-lg text-text-muted mt-3">
-            Every platform we build is engineered with clean code and a tailored admin dashboard for complete independence.
+            Every platform we build comes with clean code and an easy admin panel so you can manage your website anytime.
           </p>
         </motion.div>
 
@@ -112,7 +112,7 @@ export default function Services() {
                     to="/contact"
                     className="inline-flex items-center gap-2 font-label-md text-sm sm:text-base font-bold text-text-main group-hover:text-amber-600 transition-colors cursor-pointer"
                   >
-                    Discuss Scope
+                    Discuss Your Project
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

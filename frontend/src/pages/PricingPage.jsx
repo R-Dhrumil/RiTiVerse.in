@@ -47,14 +47,14 @@ export default function PricingPage() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-4 mx-auto">
               <DollarSign className="w-4 h-4 text-amber-600" />
               <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-                Transparent Scoping
+                Simple Pricing
               </span>
             </div>
             <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-main tracking-tight leading-tight mb-5">
-              Clear, Predictable Project Packages
+              Clear, Simple Project Packages
             </h1>
             <p className="font-body text-base sm:text-lg text-text-muted leading-relaxed mb-6">
-              Straightforward pricing engineered for businesses seeking custom digital software, complete admin autonomy, and zero recurring platform lock-in.
+              Honest, milestone-based pricing for businesses that want custom software with an easy admin panel and 100% code ownership.
             </p>
           </motion.div>
         </div>
@@ -95,13 +95,13 @@ export default function PricingPage() {
                       {tier.price}
                     </span>
                     <p className="text-sm text-text-muted mt-1">
-                      Fixed-scope milestone contract
+                      Clear scope, milestone payments
                     </p>
                   </div>
 
                   <div className="border-t border-slate-100 pt-5 mb-7">
                     <h3 className="font-label-md text-sm uppercase tracking-wider text-text-main font-bold mb-3">
-                      Included Deliverables
+                      What's Included
                     </h3>
                     <ul className="space-y-2.5">
                       {tier.features.map((feat, fIdx) => (

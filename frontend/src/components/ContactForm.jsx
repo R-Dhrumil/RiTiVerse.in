@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle2, AlertCircle, Loader2, Mail, User, MessageSquare, Briefcase, Sliders } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2, Mail, User, MessageSquare, Briefcase, Clock } from 'lucide-react';
 import { supabase } from '../utils/supabaseClient';
 
 export default function ContactForm() {
@@ -140,12 +140,12 @@ export default function ContactForm() {
 
               <div className="flex items-center gap-4 p-4 bg-surface rounded-xl border border-outline-variant">
                 <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-text-main">
-                  <Sliders className="w-5 h-5 text-accent-warm" />
+                  <Clock className="w-5 h-5 text-accent-warm" />
                 </div>
                 <div>
-                  <p className="font-label text-sm text-text-muted uppercase">Admin Suite Included</p>
+                  <p className="font-label text-sm text-text-muted uppercase">Response Window</p>
                   <p className="font-headline font-bold text-text-main text-base">
-                    100% Code Handover & Training
+                    Within 24 Business Hours
                   </p>
                 </div>
               </div>

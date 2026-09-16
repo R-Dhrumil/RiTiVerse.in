@@ -21,13 +21,13 @@ export default function Hero() {
   };
 
   const marqueeItems = [
-    'Instant no-code edits for text, pricing, & promos',
+    'Instant edits for text, prices, and promo banners',
     '100% Source code & cloud ownership (Zero lock-in)',
-    'Bespoke Admin Dashboard tailored to your exact workflow',
-    'Granular role-based permissions (RBAC) for your team',
-    'Production-ready React & Node.js architecture',
-    '2–4 Week agile delivery with guaranteed SLA',
-    'Real-time database synchronization with zero downtime'
+    'Custom Admin Panel built for your daily workflow',
+    'Team roles & permissions (Admin, Editor, Staff)',
+    'Fast & reliable React & Node.js code',
+    'Fast 2–4 week delivery with clear milestones',
+    'Real-time database updates without site slowdowns'
   ];
 
   return (
@@ -78,7 +78,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-body text-base sm:text-lg md:text-xl text-text-muted leading-relaxed text-center max-w-2xl mt-4 mb-8"
         >
-          Scale your digital business without developer dependency. Every web application, mobile platform, and digital system we engineer comes standard with a dedicated Admin Panel — so you update content, pricing, and features in seconds.
+          Run your business online without waiting on developers for simple changes. Every web app and platform we build comes standard with an easy Admin Panel—so you can edit text, update prices, and manage customer inquiries in seconds.
         </motion.p>
 
         {/* CTAs with Playful Hand-Drawn Annotation Arrow */}
@@ -161,7 +161,7 @@ export default function Hero() {
               ))}
             </div>
             <span className="text-sm font-semibold text-text-muted">
-              Loved by founders & operators globally
+              Loved by founders & business owners
             </span>
           </div>
         </motion.div>
@@ -198,10 +198,10 @@ export default function Hero() {
             </span>
             <div>
               <p className="font-bold text-base text-text-main">
-                Complete Admin Autonomy
+                Easy Admin Control
               </p>
               <p className="text-sm text-text-muted leading-relaxed mt-1">
-                Edit text, change pricing, and toggle promo banners in 5 seconds without waiting on developer tickets.
+                Edit text, change prices, and turn on promo banners anytime without waiting on support tickets.
               </p>
             </div>
           </div>
@@ -216,7 +216,7 @@ export default function Hero() {
                 100% Code & Cloud Ownership
               </p>
               <p className="text-sm text-text-muted leading-relaxed mt-1">
-                Full source code handed over to your GitHub repo. Deployed directly to your cloud with zero proprietary lock-in.
+                All source code is handed over to your GitHub and cloud account. Zero monthly platform lock-in fees.
               </p>
             </div>
           </div>
@@ -228,10 +228,10 @@ export default function Hero() {
             </span>
             <div>
               <p className="font-bold text-base text-text-main">
-                Production-Grade Engineering
+                Clean & Fast Code
               </p>
               <p className="text-sm text-text-muted leading-relaxed mt-1">
-                Engineered with clean React, Node, and secure REST APIs built for enterprise reliability, speed, and scale.
+                Built with modern React and Node.js code that loads fast, stays safe, and easily grows with your business.
               </p>
             </div>
           </div>

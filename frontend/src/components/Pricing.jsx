@@ -25,14 +25,14 @@ export default function Pricing() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-slate-200 w-fit mb-3 shadow-xs">
             <DollarSign className="w-4 h-4 text-amber-600" />
             <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-              Transparent Scoping
+              Simple Pricing
             </span>
           </div>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
-            Straightforward Project Packages
+            Clear Project Packages
           </h2>
           <p className="font-body text-text-muted text-base sm:text-lg mt-2">
-            Every package includes 100% source code ownership and a custom admin dashboard.
+            Every package includes 100% source code ownership and an easy Admin Panel.
           </p>
         </motion.div>
 
@@ -68,7 +68,7 @@ export default function Pricing() {
                       {tier.price}
                     </span>
                     <p className="font-body text-sm text-text-muted mt-1">
-                      Fixed-scope milestone contract
+                      Clear scope, milestone payments
                     </p>
                   </div>
 

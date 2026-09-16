@@ -31,18 +31,18 @@ export default function WhyChooseUs() {
             </div>
             
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text-main tracking-tight leading-[1.15]">
-              Total Independence. Zero Tech Debt.
+              Full Control. No Tech Headaches.
             </h2>
             
             <p className="font-body text-base sm:text-lg text-text-muted leading-relaxed">
-              We engineer custom software so you never have to wait on an external agency for simple copy, price, or media updates.
+              We build custom software so your business can update prices, images, and content directly without waiting on an outside agency.
             </p>
 
             <div className="flex flex-col gap-3 pt-1">
               {[
-                "100% Source code & database ownership",
-                "Dedicated custom admin panel included",
-                "Direct communication with senior engineers"
+                "100% code and database ownership",
+                "Easy-to-use admin panel included",
+                "Direct contact with senior developers"
               ].map((point, idx) => (
                 <div key={idx} className="flex items-center gap-3">
                   <div className="w-5 h-5 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">

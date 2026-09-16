@@ -9,14 +9,14 @@ export const BLOG_CATEGORIES = [
 export const INITIAL_BLOG_POSTS = [
   {
     id: 'b1',
-    slug: 'building-scalable-react-19-architectures',
+    slug: 'admin-control-competitive-advantage',
     title: 'Why Total Admin Control is the Ultimate Competitive Advantage',
     excerpt: 'How custom administrative dashboards empower non-technical teams to manage content, leads, and pricing instantly without waiting on developers.',
     category: 'Admin Control',
     tags: ['Admin Dashboards', 'React 19', 'Business Autonomy'],
     read_time: '4 min read',
     created_at: '2026-08-10T10:00:00.000Z',
-    views: 1420,
+    views: 0,
     featured: true,
     published: true,
     cover_image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
@@ -51,14 +51,14 @@ Off-the-shelf CMS solutions are often bloated and confusing. We build minimal, p
   },
   {
     id: 'b2',
-    slug: 'supabase-vs-traditional-relational-databases',
+    slug: 'code-ownership-vs-saas-lock-in',
     title: '100% Code Ownership vs Proprietary SaaS Lock-In',
     excerpt: 'An architectural analysis of why owning your full source code and database saves thousands in recurring platform fees.',
     category: 'Code Ownership',
     tags: ['Code Ownership', 'PostgreSQL', 'Architecture'],
     read_time: '5 min read',
     created_at: '2026-08-04T14:30:00.000Z',
-    views: 980,
+    views: 0,
     featured: false,
     published: true,
     cover_image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200',
@@ -76,7 +76,7 @@ Many software agencies deliver websites built on proprietary platforms that requ
 
 ## 1. Complete Source Code Handover
 
-At Nirmaan Softworks, you receive the full Git repository, database schemas, and documentation. You can host it anywhere, modify it at any time, and never pay hostage fees.
+At Nirmaan Softworks, you receive the full Git repository, database schemas, and documentation. You can host it anywhere, modify it at any time, and never pay recurring licensing fees.
 
 - **Zero Monthly Platform Fees:** Only standard cloud hosting at cost.
 - **Freedom to Expand:** Any modern developer can build on clean React and Node code.
@@ -91,14 +91,14 @@ We build exclusively with standard, battle-tested technologies: React 19, Vite, 
   },
   {
     id: 'b3',
-    slug: 'ai-driven-code-generation-and-dev-pipelines',
+    slug: 'real-time-admin-dashboards-postgres',
     title: 'Architecting Real-Time Admin Dashboards with React & PostgreSQL',
     excerpt: 'How modern full-stack architectures deliver sub-second data synchronization and role-based permissions.',
     category: 'Engineering',
     tags: ['React 19', 'PostgreSQL', 'Full Stack'],
     read_time: '4 min read',
     created_at: '2026-07-28T09:15:00.000Z',
-    views: 2150,
+    views: 0,
     featured: false,
     published: true,
     cover_image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200',
@@ -131,14 +131,14 @@ By pairing PostgreSQL realtime notifications with optimized React state, updates
   },
   {
     id: 'b4',
-    slug: 'zero-trust-cloud-security-best-practices',
+    slug: 'role-based-security-client-portals',
     title: 'Hardening Client Portals with Role-Based Security & Encryption',
     excerpt: 'Practical security protocols for API key rotation, JWT authorization, and encrypted database storage.',
     category: 'Security',
     tags: ['Security', 'Cloud', 'Data Privacy'],
     read_time: '5 min read',
     created_at: '2026-07-19T11:00:00.000Z',
-    views: 840,
+    views: 0,
     featured: false,
     published: true,
     cover_image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200',

@@ -42,7 +42,7 @@ export default function BlogPostPage({ slug }) {
       const localPost = INITIAL_BLOG_POSTS.find((p) => p.slug === slug) || INITIAL_BLOG_POSTS[0];
       if (isMounted) {
         setPost(localPost);
-        setLikes(Math.floor(localPost.views / 10) || 42);
+        setLikes(0);
       }
 
       try {
@@ -51,7 +51,7 @@ export default function BlogPostPage({ slug }) {
           const result = await response.json();
           if (result.success && result.post && isMounted) {
             setPost(result.post);
-            setLikes(Math.floor(result.post.views / 10) || 42);
+            setLikes(result.post.likes || 0);
           }
         }
       } catch (err) {
@@ -69,22 +69,8 @@ export default function BlogPostPage({ slug }) {
           }
         }
       } catch (err) {
-        // Mock fallback comments
         if (isMounted) {
-          setComments([
-            {
-              id: 'c1',
-              author_name: 'David Chen',
-              comment: 'Exceptional breakdown of admin autonomy! We recently migrated from a rigid CMS and the agility gain has been enormous.',
-              created_at: new Date(Date.now() - 86400000).toISOString()
-            },
-            {
-              id: 'c2',
-              author_name: 'Sarah Jenkins',
-              comment: '100% code ownership is the only way forward for modern businesses. Great analysis!',
-              created_at: new Date(Date.now() - 172800000).toISOString()
-            }
-          ]);
+          setComments([]);
         }
       }
     };
@@ -358,10 +344,6 @@ export default function BlogPostPage({ slug }) {
               <Clock className="w-4 h-4 text-amber-600" />
               {post.read_time || '5 min read'}
             </span>
-            <span className="flex items-center gap-1.5">
-              <Eye className="w-4 h-4 text-amber-600" />
-              {post.views || 0} views
-            </span>
           </div>
         </div>
 
@@ -499,19 +481,25 @@ export default function BlogPostPage({ slug }) {
           </div>
 
           {/* Comment List */}
-          <div className="space-y-4">
-            {comments.map((c) => (
-              <div key={c.id} className="bg-surface border border-slate-200 rounded-xl p-5 shadow-xs">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-text-main text-base">{c.author_name}</span>
-                  <span className="text-sm text-text-muted">
-                    {new Date(c.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-                  </span>
+          {comments.length > 0 ? (
+            <div className="space-y-4">
+              {comments.map((c) => (
+                <div key={c.id} className="bg-surface border border-slate-200 rounded-xl p-5 shadow-xs">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-bold text-text-main text-base">{c.author_name}</span>
+                    <span className="text-sm text-text-muted">
+                      {new Date(c.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                    </span>
+                  </div>
+                  <p className="font-body text-text-muted text-base leading-relaxed">{c.comment}</p>
                 </div>
-                <p className="font-body text-text-muted text-base leading-relaxed">{c.comment}</p>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-8 text-text-muted text-sm font-medium bg-surface/60 rounded-xl border border-slate-200/60">
+              No comments yet. Be the first to share your perspective.
+            </div>
+          )}
         </div>
 
         {/* Related Articles */}

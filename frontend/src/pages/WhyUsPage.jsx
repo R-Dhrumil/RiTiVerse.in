@@ -46,10 +46,10 @@ export default function WhyUsPage() {
               </span>
             </div>
             <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-main tracking-tight leading-tight mb-5">
-              Engineering Built Around Freedom, Speed & Total Admin Control
+              Engineering Built Around Autonomy, Quality & Direct Control
             </h1>
             <p className="font-body text-base sm:text-lg text-text-muted leading-relaxed mb-7">
-              We eliminate the frustration of waiting on developers for routine updates. Every system we build empowers business owners with custom admin dashboards and 100% code ownership.
+              We build custom software platforms that grant companies full operational independence. Every system we deploy pairs a dedicated administrative console with complete source code and infrastructure ownership.
             </p>
           </motion.div>
         </div>

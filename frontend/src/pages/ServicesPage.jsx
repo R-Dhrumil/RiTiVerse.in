@@ -35,19 +35,19 @@ const processIconMap = {
 const serviceFaqs = [
   {
     q: "Will we be able to manage all content without writing code?",
-    a: "Yes! Every platform we build includes a tailored visual Admin Dashboard where you can update copy, banners, pricing, and leads without touching code."
+    a: "Yes! Every platform we build includes an easy-to-use Admin Panel where you can update text, images, pricing, and view customer inquiries without touching code."
   },
   {
     q: "Do you build custom software or use rigid templates?",
-    a: "Every solution is custom-architected using modern frameworks (React 19, Vite, Node, PostgreSQL/Supabase) tailored to your exact business needs."
+    a: "Every solution is custom-built using modern, reliable technologies (React, Node.js, PostgreSQL) tailored to your exact business needs."
   },
   {
     q: "Do we own the full source code and database?",
-    a: "Yes, 100%. All repository code, database schemas, and assets belong entirely to you with zero recurring proprietary vendor fees."
+    a: "Yes, 100%. All repository code, database files, and designs belong entirely to your company with zero recurring monthly platform fees."
   },
   {
     q: "What training and handover do you provide?",
-    a: "We provide live 1-on-1 walkthrough training sessions for your team to master your custom admin panel."
+    a: "We provide live 1-on-1 walkthrough training sessions so your team feels completely confident managing your new admin panel."
   }
 ];
 
@@ -85,14 +85,14 @@ export default function ServicesPage() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-4">
               <Layers className="w-4 h-4 text-amber-600" />
               <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-                Full-Spectrum Services
+                Our Services
               </span>
             </div>
             <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-main tracking-tight leading-tight mb-5">
-              Custom IT Services with Total Admin Control
+              Custom Software & Websites with Easy Admin Control
             </h1>
             <p className="font-body text-base sm:text-lg text-text-muted leading-relaxed mb-7">
-              We build custom web platforms, internal operations tools, and e-commerce stores equipped with intuitive Admin Panels so you operate with complete independence.
+              We build custom web platforms, online stores, and internal company tools equipped with an easy Admin Panel so your team can manage everything directly.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -119,10 +119,10 @@ export default function ServicesPage() {
         <div className="max-w-container-max mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-text-main">
-              Core Technical Capabilities
+              What We Build
             </h2>
             <p className="font-body text-text-muted mt-2 text-base sm:text-lg">
-              Engineered for high performance, clean architecture, and effortless administration.
+              Fast, easy to manage, and built to grow with your business.
             </p>
           </div>
 
@@ -180,7 +180,7 @@ export default function ServicesPage() {
                       to="/contact"
                       className="inline-flex items-center gap-2 font-label-md text-base text-text-main font-bold hover:text-amber-600 transition-colors group/link cursor-pointer"
                     >
-                      Scope your {service.title} project
+                      Discuss your {service.title} project
                       <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -196,13 +196,13 @@ export default function ServicesPage() {
         <div className="max-w-container-max mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="font-label-md text-sm font-bold text-amber-600 uppercase tracking-wider">
-              Methodology
+              How We Work
             </span>
             <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-text-main mt-1">
-              Our 4-Phase Delivery Framework
+              Our 4-Step Process
             </h2>
             <p className="font-body text-text-muted mt-2 text-base">
-              Predictable, outcome-driven delivery designed to eliminate technical debt.
+              A clear step-by-step process with regular updates from start to finish.
             </p>
           </div>
 

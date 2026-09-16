@@ -56,13 +56,13 @@ export default function ContactPage() {
 
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center text-amber-600 flex-shrink-0 shadow-xs">
-                  <Phone className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-sm text-text-muted uppercase tracking-wider font-bold block mb-1">Phone</span>
-                  <a href={`tel:${COMPANY_INFO.phone}`} className="font-body text-base text-text-main font-bold hover:text-amber-600 transition-colors">
-                    {COMPANY_INFO.phone}
-                  </a>
+                  <span className="text-sm text-text-muted uppercase tracking-wider font-bold block mb-1">Response</span>
+                  <span className="font-body text-base text-text-main font-bold">
+                    {COMPANY_INFO.responseTime}
+                  </span>
                 </div>
               </div>
 

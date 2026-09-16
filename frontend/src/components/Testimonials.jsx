@@ -5,18 +5,18 @@ import { ShieldCheck, Key, GraduationCap, Award } from 'lucide-react';
 const commitments = [
   {
     icon: Key,
-    title: "100% Code & IP Handover",
-    description: "Every line of code, database schema, and design belongs entirely to you with zero licensing fees."
+    title: "Complete Repository Handover",
+    description: "All source code, database architecture, and deployment configurations belong to your business upon delivery."
   },
   {
     icon: GraduationCap,
-    title: "Complete Admin Training",
-    description: "Hands-on live walkthrough sessions so your team masters your custom admin panel from day one."
+    title: "Admin Onboarding Walkthrough",
+    description: "Hands-on walkthrough sessions ensure your internal operations team is confident managing the platform."
   },
   {
     icon: ShieldCheck,
-    title: "Modern Open Architecture",
-    description: "Built strictly on React, Node, and PostgreSQL for maximum speed, security, and zero vendor lock-in."
+    title: "Open-Source Architecture",
+    description: "Engineered with standard React, Node.js, and PostgreSQL for maximum security, performance, and vendor independence."
   }
 ];
 
@@ -39,10 +39,10 @@ export default function Testimonials() {
             </span>
           </div>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
-            Our Standards & Guarantees
+            Our Engineering Standards
           </h2>
           <p className="font-body text-text-muted text-base sm:text-lg mt-2">
-            Clear terms, honest engineering, and complete transparency on every build.
+            Clear scopes, transparent milestones, and complete operational handover.
           </p>
         </motion.div>
 
