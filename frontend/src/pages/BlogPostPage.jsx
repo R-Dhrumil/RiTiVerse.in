@@ -280,9 +280,9 @@ export default function BlogPostPage({ slug }) {
   };
 
   return (
-    <div className="pt-24 pb-20 bg-background min-h-screen relative">
+    <div className="pt-28 sm:pt-36 pb-20 bg-background min-h-screen relative">
       {/* Scroll Reading Progress Line at Top Header */}
-      <div className="fixed top-0 left-0 right-0 h-1.5 bg-slate-200 z-50">
+      <div className="fixed top-0 left-0 right-0 h-1 bg-slate-200/30 z-40">
         <div
           className="h-full bg-amber-500 transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}

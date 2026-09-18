@@ -91,9 +91,9 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="pt-24 pb-20 bg-background text-text-main min-h-screen">
-      {/* Page Header Banner */}
-      <section className="py-16 md:py-24 px-gutter bg-surface border-b border-slate-200 relative overflow-hidden">
+    <div className="bg-background text-text-main min-h-screen">
+      {/* Page Header Banner extending under floating navbar */}
+      <section className="pt-28 sm:pt-36 pb-16 md:pb-20 px-gutter bg-surface border-b border-slate-200 relative overflow-hidden">
         <div className="max-w-container-max mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 18 }}

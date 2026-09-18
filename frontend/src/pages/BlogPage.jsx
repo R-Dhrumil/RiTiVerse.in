@@ -81,9 +81,9 @@ export default function BlogPage() {
   };
 
   return (
-    <div className="pt-24 pb-20 bg-background min-h-screen">
-      {/* 1. Hero Header Section */}
-      <section className="relative overflow-hidden bg-slate-900 text-white py-16 sm:py-24 border-b border-slate-800">
+    <div className="bg-background min-h-screen">
+      {/* 1. Hero Header Section extending under floating navbar */}
+      <section className="relative overflow-hidden bg-slate-900 text-white pt-28 sm:pt-36 pb-16 sm:pb-24 border-b border-slate-800">
         <div className="max-w-container-max mx-auto px-gutter relative z-10 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
