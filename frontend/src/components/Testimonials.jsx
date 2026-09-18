@@ -22,7 +22,7 @@ const commitments = [
 
 export default function Testimonials() {
   return (
-    <section className="py-20 md:py-28 px-gutter bg-surface relative overflow-hidden border-t border-slate-200/80">
+    <section className="py-14 md:py-20 px-gutter bg-surface relative overflow-hidden border-t border-slate-200/80">
       <div className="max-w-container-max mx-auto relative z-10">
         {/* Header */}
         <motion.div
@@ -30,14 +30,8 @@ export default function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-3 shadow-xs">
-            <Award className="w-4 h-4 text-amber-600" />
-            <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-              Our Commitments
-            </span>
-          </div>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
             Our Engineering Standards
           </h2>

@@ -30,12 +30,6 @@ export default function PortfolioPage() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-4">
-              <FolderGit2 className="w-4 h-4 text-amber-600" />
-              <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-                Case Studies
-              </span>
-            </div>
             <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-main tracking-tight leading-tight mb-5">
               Proven Platforms Delivered With Full Admin Control
             </h1>

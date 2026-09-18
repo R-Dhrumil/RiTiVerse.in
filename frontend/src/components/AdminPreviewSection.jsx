@@ -33,7 +33,7 @@ export default function AdminPreviewSection() {
   };
 
   return (
-    <section id="admin-control" className="py-20 md:py-28 px-gutter bg-surface-bright relative z-20 border-t border-b border-slate-200/80 overflow-hidden">
+    <section id="admin-control" className="pt-12 sm:pt-16 pb-16 sm:pb-20 px-gutter bg-surface-bright relative z-20 border-t border-b border-slate-200/80 overflow-hidden">
       <div className="max-w-container-max mx-auto">
         {/* Section Header */}
         <motion.div
@@ -41,14 +41,8 @@ export default function AdminPreviewSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center max-w-2xl mx-auto mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-slate-200 w-fit mb-3 shadow-xs">
-            <Sliders className="w-4 h-4 text-amber-600" />
-            <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-              Interactive Preview
-            </span>
-          </div>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
             Tailored Admin Dashboards
           </h2>

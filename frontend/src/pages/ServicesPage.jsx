@@ -101,12 +101,6 @@ export default function ServicesPage() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-4">
-              <Layers className="w-4 h-4 text-amber-600" />
-              <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-                Services & Why Partner With Us
-              </span>
-            </div>
             <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-main tracking-tight leading-tight mb-5">
               Custom Software & Websites with Complete Admin Control
             </h1>
@@ -136,13 +130,7 @@ export default function ServicesPage() {
       {/* Why Choose Us Value Pillars */}
       <section id="why-us" className="py-20 px-gutter bg-background border-b border-slate-200">
         <div className="max-w-container-max mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-slate-200 w-fit mb-3">
-              <ShieldCheck className="w-4 h-4 text-amber-600" />
-              <span className="font-label-md text-xs sm:text-sm font-bold text-text-main uppercase tracking-wider">
-                Why Us
-              </span>
-            </div>
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-text-main">
               Full Control. No Tech Headaches.
             </h2>
@@ -261,13 +249,7 @@ export default function ServicesPage() {
       {/* Tech Stack Showcase */}
       <section className="py-20 px-gutter bg-surface border-y border-slate-200">
         <div className="max-w-container-max mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-3">
-              <Terminal className="w-4 h-4 text-amber-600" />
-              <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-                Technology Standards
-              </span>
-            </div>
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-text-main">
               Built on Modern Open-Source Tech
             </h2>
@@ -348,12 +330,6 @@ export default function ServicesPage() {
       {/* Services FAQ Accordion */}
       <section className="py-20 px-gutter max-w-3xl mx-auto">
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-slate-200 w-fit mb-2">
-            <HelpCircle className="w-4 h-4 text-amber-600" />
-            <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-              FAQ
-            </span>
-          </div>
           <h2 className="font-headline text-2xl sm:text-3xl font-bold text-text-main">
             Frequently Asked Questions
           </h2>

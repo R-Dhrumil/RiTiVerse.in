@@ -85,15 +85,6 @@ export default function BlogPage() {
       {/* 1. Hero Header Section */}
       <section className="relative overflow-hidden bg-slate-900 text-white py-16 sm:py-24 border-b border-slate-800">
         <div className="max-w-container-max mx-auto px-gutter relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-slate-800/80 backdrop-blur-md border border-amber-500/30 px-4 py-1.5 rounded-full text-sm font-bold text-amber-400 mb-6 uppercase tracking-wider shadow-sm"
-          >
-            <BookOpen className="w-4 h-4" />
-            Engineering & Strategy Journal
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

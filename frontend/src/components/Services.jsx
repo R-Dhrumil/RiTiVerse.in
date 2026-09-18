@@ -50,7 +50,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-20 md:py-28 px-gutter bg-surface relative z-20 scroll-mt-20">
+    <section id="services" className="py-14 md:py-20 px-gutter bg-surface relative z-20 scroll-mt-20">
       {/* Anchor for Why Us */}
       <div id="why-us" className="-top-24 relative" />
 
@@ -61,14 +61,8 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-3">
-            <Sparkles className="w-4 h-4 text-amber-600" />
-            <span className="font-label-md text-xs sm:text-sm font-bold text-text-main uppercase tracking-wider">
-              Services & Core Value
-            </span>
-          </div>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
             Custom Web Software Built for Complete Autonomy
           </h2>

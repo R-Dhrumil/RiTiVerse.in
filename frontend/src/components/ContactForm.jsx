@@ -108,15 +108,8 @@ export default function ContactForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 flex flex-col gap-6"
+            className="lg:col-span-5 flex flex-col gap-5"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-outline-variant w-fit shadow-sm">
-              <Mail className="w-4 h-4 text-accent-warm" />
-              <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-                Direct Contact
-              </span>
-            </div>
-
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text-main tracking-tight leading-[1.15]">
               Let’s Build Your Solution.
             </h2>

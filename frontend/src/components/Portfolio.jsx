@@ -15,7 +15,7 @@ export default function Portfolio() {
     : PORTFOLIO_PROJECTS.filter(p => p.category === selectedFilter);
 
   return (
-    <section id="portfolio" className="py-20 md:py-28 px-gutter bg-surface relative">
+    <section id="portfolio" className="py-14 md:py-20 px-gutter bg-surface relative">
       <div className="max-w-container-max mx-auto">
         {/* Header */}
         <motion.div
@@ -26,12 +26,6 @@ export default function Portfolio() {
           className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-5"
         >
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-3">
-              <Briefcase className="w-4 h-4 text-amber-600" />
-              <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-                Delivered Systems
-              </span>
-            </div>
             <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
               Featured Case Studies
             </h2>

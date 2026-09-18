@@ -27,7 +27,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-start pt-28 sm:pt-36 pb-20 px-gutter w-full overflow-hidden bg-editorial-grid"
+      className="relative flex flex-col items-center justify-start pt-28 sm:pt-32 pb-10 sm:pb-12 px-gutter w-full overflow-hidden bg-editorial-grid"
     >
       {/* Humanto-style Warm Peach & Amber Ambient Gradient Haze at the bottom */}
       <div className="absolute inset-x-0 bottom-0 h-[520px] bg-peach-glow pointer-events-none z-0" />
@@ -139,7 +139,7 @@ export default function Hero() {
          */}
 
         {/* Infinite Marquee Strip of Core Business Benefits */}
-        <div className="w-full overflow-hidden py-8 mt-4 border-y border-slate-200/70 relative">
+        <div className="w-full overflow-hidden py-5 mt-3 border-y border-slate-200/70 relative">
           <div className="animate-marquee flex items-center gap-4">
             {[...marqueeItems, ...marqueeItems].map((item, idx) => (
               <div
@@ -161,7 +161,7 @@ export default function Hero() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full max-w-4xl mt-4 pt-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 w-full max-w-4xl mt-4 pt-2"
         >
           {/* Pillar 1 */}
           <div className="flex items-start gap-3">
