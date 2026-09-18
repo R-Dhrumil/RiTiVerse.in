@@ -56,7 +56,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-body text-base sm:text-lg md:text-xl text-text-muted leading-relaxed text-center max-w-2xl mt-4 mb-8"
         >
-          Never wait days on a developer for simple changes. We build custom web platforms with an easy Admin Panel—so you can update text, prices, and banners in seconds.
+          Never wait days on a developer for simple changes. We build custom web platforms with an easy Admin Panel so you can update text, prices, and banners in seconds.
         </motion.p>
 
         {/* CTAs with Playful Hand-Drawn Annotation Arrow */}

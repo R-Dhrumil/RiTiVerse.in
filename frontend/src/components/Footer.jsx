@@ -36,16 +36,10 @@ export default function Footer() {
             </h4>
             <div className="flex flex-col gap-2 font-body text-sm">
               <Link to="/services" className="hover:text-amber-400 transition-colors w-fit">
-                Services
+                Services & Why Us
               </Link>
               <Link to="/portfolio" className="hover:text-amber-400 transition-colors w-fit">
                 Portfolio
-              </Link>
-              <Link to="/pricing" className="hover:text-amber-400 transition-colors w-fit">
-                Pricing
-              </Link>
-              <Link to="/why-us" className="hover:text-amber-400 transition-colors w-fit">
-                Why Us
               </Link>
               <Link to="/blog" className="hover:text-amber-400 transition-colors w-fit">
                 Blog

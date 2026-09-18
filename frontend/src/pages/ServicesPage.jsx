@@ -13,9 +13,15 @@ import {
   Palette, 
   Code2, 
   GraduationCap,
-  HelpCircle
+  HelpCircle,
+  ShieldCheck,
+  Terminal,
+  Sliders,
+  Key,
+  Zap,
+  UserCheck
 } from 'lucide-react';
-import { SERVICES, PROCESS_STEPS } from '../constants/content';
+import { SERVICES, PROCESS_STEPS, WHY_CHOOSE_US, COMPANY_INFO } from '../constants/content';
 import { Link } from '../context/RouterContext';
 
 const iconMap = {
@@ -25,6 +31,13 @@ const iconMap = {
   server: Server
 };
 
+const pillarIconMap = {
+  sliders: Sliders,
+  key: Key,
+  zap: Zap,
+  user_check: UserCheck
+};
+
 const processIconMap = {
   1: Compass,
   2: Palette,
@@ -32,10 +45,16 @@ const processIconMap = {
   4: GraduationCap
 };
 
+const techStack = [
+  { category: "Frontend Engineering", tools: ["React 19", "Vite 6", "Tailwind CSS", "Framer Motion", "Three.js"] },
+  { category: "Backend & Database", tools: ["Node.js", "Supabase", "PostgreSQL", "REST & GraphQL", "Serverless Functions"] },
+  { category: "Quality & Deployment", tools: ["Automated CI/CD", "Vercel / Netlify", "SSL Encryption", "Zero Lock-In Architecture"] }
+];
+
 const serviceFaqs = [
   {
     q: "Will we be able to manage all content without writing code?",
-    a: "Yes! Every platform we build includes an easy-to-use Admin Panel where you can update text, images, pricing, and view customer inquiries without touching code."
+    a: "Yes! Every platform we build includes an easy-to-use Admin Panel where you can update text, images, products, and view customer inquiries without touching code."
   },
   {
     q: "Do you build custom software or use rigid templates?",
@@ -85,32 +104,80 @@ export default function ServicesPage() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-4">
               <Layers className="w-4 h-4 text-amber-600" />
               <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-                Our Services
+                Services & Why Partner With Us
               </span>
             </div>
             <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-extrabold text-text-main tracking-tight leading-tight mb-5">
-              Custom Software & Websites with Easy Admin Control
+              Custom Software & Websites with Complete Admin Control
             </h1>
             <p className="font-body text-base sm:text-lg text-text-muted leading-relaxed mb-7">
-              We build custom web platforms, online stores, and internal company tools equipped with an easy Admin Panel so your team can manage everything directly.
+              We build custom web platforms, online stores, and internal company tools equipped with an easy Admin Panel so your team can manage everything directly—with 100% code ownership.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/contact"
-                className="bg-accent-warm text-text-main font-bold text-sm sm:text-base px-7 py-3.5 rounded-DEFAULT shadow-md hover:shadow-xl hover:bg-amber-400 transition-all flex items-center gap-2 cursor-pointer card-hover-lift"
+                className="bg-slate-900 text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-full shadow-md hover:shadow-xl hover:bg-slate-800 transition-all flex items-center gap-2 cursor-pointer"
               >
                 Request a Custom Quote
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-amber-400" />
               </Link>
               <Link
                 to="/portfolio"
-                className="bg-surface border border-slate-300 text-text-main font-bold text-sm sm:text-base px-6 py-3.5 rounded-DEFAULT hover:bg-slate-100 transition-colors cursor-pointer"
+                className="bg-surface border border-slate-300 text-text-main font-bold text-sm sm:text-base px-6 py-3.5 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
               >
                 View Case Studies
               </Link>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Value Pillars */}
+      <section id="why-us" className="py-20 px-gutter bg-background border-b border-slate-200">
+        <div className="max-w-container-max mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface border border-slate-200 w-fit mb-3">
+              <ShieldCheck className="w-4 h-4 text-amber-600" />
+              <span className="font-label-md text-xs sm:text-sm font-bold text-text-main uppercase tracking-wider">
+                Why Us
+              </span>
+            </div>
+            <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-text-main">
+              Full Control. No Tech Headaches.
+            </h2>
+            <p className="font-body text-text-muted mt-2 text-base sm:text-lg">
+              What makes our approach fundamentally different from standard software agencies.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {WHY_CHOOSE_US.map((item, idx) => {
+              const IconComp = pillarIconMap[item.icon] || Sliders;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.08 }}
+                  className="bg-surface border border-slate-200/90 rounded-2xl p-6 shadow-xs hover:shadow-lg hover:border-amber-400/80 transition-all duration-300 flex flex-col justify-between group card-hover-lift"
+                >
+                  <div>
+                    <div className="w-12 h-12 rounded-xl bg-surface-container-low border border-slate-200 flex items-center justify-center mb-4 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300">
+                      <IconComp className="w-6 h-6 text-text-main group-hover:text-amber-400 transition-colors" />
+                    </div>
+                    <h3 className="font-headline text-lg font-bold text-text-main mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="font-body text-sm text-text-muted leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -122,7 +189,7 @@ export default function ServicesPage() {
               What We Build
             </h2>
             <p className="font-body text-text-muted mt-2 text-base sm:text-lg">
-              Fast, easy to manage, and built to grow with your business.
+              Fast, easy to manage, and engineered to scale with your business.
             </p>
           </div>
 
@@ -191,8 +258,51 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Engineering Process */}
+      {/* Tech Stack Showcase */}
       <section className="py-20 px-gutter bg-surface border-y border-slate-200">
+        <div className="max-w-container-max mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-3">
+              <Terminal className="w-4 h-4 text-amber-600" />
+              <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
+                Technology Standards
+              </span>
+            </div>
+            <h2 className="font-headline text-3xl sm:text-4xl font-extrabold text-text-main">
+              Built on Modern Open-Source Tech
+            </h2>
+            <p className="font-body text-text-muted mt-2 text-base sm:text-lg">
+              Clean architectures with high developer velocity and zero proprietary runtime lock-in.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {techStack.map((group, idx) => (
+              <div
+                key={idx}
+                className="bg-background p-7 rounded-2xl border border-slate-200 shadow-xs card-hover-lift"
+              >
+                <h3 className="font-headline font-bold text-text-main text-xl mb-4 pb-3 border-b border-slate-200">
+                  {group.category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.tools.map((tool, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="bg-surface border border-slate-200 text-text-main font-mono text-sm px-3 py-1.5 rounded-lg shadow-xs"
+                    >
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Engineering Process */}
+      <section className="py-20 px-gutter bg-background border-b border-slate-200">
         <div className="max-w-container-max mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="font-label-md text-sm font-bold text-amber-600 uppercase tracking-wider">
@@ -212,10 +322,10 @@ export default function ServicesPage() {
               return (
                 <div
                   key={step.step}
-                  className="bg-background p-6 rounded-2xl border border-slate-200 hover:border-slate-400 transition-all flex flex-col justify-between card-hover-lift"
+                  className="bg-surface p-6 rounded-2xl border border-slate-200 hover:border-slate-400 transition-all flex flex-col justify-between card-hover-lift"
                 >
                   <div>
-                    <div className="w-12 h-12 rounded-xl bg-surface text-text-main border border-slate-200 flex items-center justify-center mb-5 font-bold shadow-xs">
+                    <div className="w-12 h-12 rounded-xl bg-surface-container-low text-text-main border border-slate-200 flex items-center justify-center mb-5 font-bold shadow-xs">
                       <StepIcon className="w-6 h-6 text-amber-600" />
                     </div>
                     <span className="text-sm font-mono font-bold text-amber-600 uppercase tracking-wider">
@@ -293,10 +403,10 @@ export default function ServicesPage() {
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 bg-accent-warm text-text-main font-bold px-7 py-3.5 rounded-DEFAULT hover:bg-amber-400 transition-all text-sm sm:text-base shadow-lg cursor-pointer card-hover-lift"
+            className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-7 py-3.5 rounded-full hover:bg-slate-100 transition-all text-sm sm:text-base shadow-lg cursor-pointer"
           >
             Get a Project Estimate
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-amber-600" />
           </Link>
         </div>
       </section>

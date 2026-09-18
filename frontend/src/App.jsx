@@ -6,8 +6,6 @@ import { RouterProvider, useRouter } from './context/RouterContext';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage';
-import PricingPage from './pages/PricingPage';
-import WhyUsPage from './pages/WhyUsPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
@@ -26,13 +24,10 @@ function PageContent() {
 
     switch (currentPath) {
       case '/services':
+      case '/why-us':
         return <ServicesPage />;
       case '/portfolio':
         return <PortfolioPage />;
-      case '/pricing':
-        return <PricingPage />;
-      case '/why-us':
-        return <WhyUsPage />;
       case '/contact':
         return <ContactPage />;
       case '/':

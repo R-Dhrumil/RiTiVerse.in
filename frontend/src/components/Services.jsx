@@ -7,16 +7,28 @@ import {
   Server, 
   ArrowRight, 
   CheckCircle2,
-  Layers
+  Sliders, 
+  Key, 
+  Zap, 
+  UserCheck,
+  ShieldCheck,
+  Sparkles
 } from 'lucide-react';
-import { SERVICES } from '../constants/content';
+import { SERVICES, WHY_CHOOSE_US } from '../constants/content';
 import { Link } from '../context/RouterContext';
 
-const iconMap = {
+const serviceIconMap = {
   globe: Globe,
   layout_dashboard: LayoutDashboard,
   shopping_bag: ShoppingBag,
   server: Server
+};
+
+const pillarIconMap = {
+  sliders: Sliders,
+  key: Key,
+  zap: Zap,
+  user_check: UserCheck
 };
 
 export default function Services() {
@@ -33,12 +45,15 @@ export default function Services() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.45, ease: [0.16, 1, 0.3, 1] }
     }
   };
 
   return (
-    <section id="services" className="py-20 md:py-28 px-gutter bg-surface relative z-20">
+    <section id="services" className="py-20 md:py-28 px-gutter bg-surface relative z-20 scroll-mt-20">
+      {/* Anchor for Why Us */}
+      <div id="why-us" className="-top-24 relative" />
+
       <div className="max-w-container-max mx-auto">
         {/* Section Header */}
         <motion.div
@@ -46,23 +61,61 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-low border border-slate-200 w-fit mb-3">
-            <Layers className="w-4 h-4 text-amber-600" />
-            <span className="font-label-md text-sm font-bold text-text-main uppercase tracking-wider">
-              What We Build
+            <Sparkles className="w-4 h-4 text-amber-600" />
+            <span className="font-label-md text-xs sm:text-sm font-bold text-text-main uppercase tracking-wider">
+              Services & Core Value
             </span>
           </div>
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
-            Custom Web Software with Easy Admin Control
+            Custom Web Software Built for Complete Autonomy
           </h2>
-          <p className="font-body text-base sm:text-lg text-text-muted mt-3">
-            Every platform we build comes with clean code and an easy admin panel so you can manage your website anytime.
+          <p className="font-body text-base sm:text-lg text-text-muted mt-3.5 leading-relaxed">
+            Every platform we engineer pairs modern architecture with an intuitive admin dashboard, giving your business 100% control without monthly vendor lock-in.
           </p>
         </motion.div>
 
-        {/* 2x2 Clean Services Grid */}
+        {/* Integrated Why Us Value Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16"
+        >
+          {WHY_CHOOSE_US.map((item, idx) => {
+            const IconComp = pillarIconMap[item.icon] || Sliders;
+            return (
+              <div
+                key={idx}
+                className="bg-background border border-slate-200/90 rounded-xl p-5 hover:border-amber-400/80 hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div className="w-10 h-10 rounded-lg bg-surface-container-low border border-slate-200 flex items-center justify-center mb-3.5 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-200">
+                  <IconComp className="w-5 h-5 text-slate-700 group-hover:text-amber-400 transition-colors" />
+                </div>
+                <h3 className="font-headline text-base font-bold text-text-main mb-1.5">
+                  {item.title}
+                </h3>
+                <p className="font-body text-sm text-text-muted leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
+        </motion.div>
+
+        {/* 2x2 Services Offerings Matrix */}
+        <div className="mb-4 flex items-center justify-between">
+          <h3 className="font-headline text-xl sm:text-2xl font-bold text-text-main">
+            Solutions We Deliver
+          </h3>
+          <span className="text-xs sm:text-sm font-semibold text-text-muted">
+            All tiers include tailored admin access
+          </span>
+        </div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -71,7 +124,7 @@ export default function Services() {
           className="grid grid-cols-1 md:grid-cols-2 gap-6"
         >
           {SERVICES.map((service) => {
-            const IconComponent = iconMap[service.icon] || Globe;
+            const IconComponent = serviceIconMap[service.icon] || Globe;
             return (
               <motion.div
                 key={service.id}
@@ -90,9 +143,9 @@ export default function Services() {
                     )}
                   </div>
 
-                  <h3 className="font-headline text-2xl font-bold text-text-main mb-2.5 group-hover:text-amber-600 transition-colors">
+                  <h4 className="font-headline text-2xl font-bold text-text-main mb-2.5 group-hover:text-amber-600 transition-colors">
                     {service.title}
-                  </h3>
+                  </h4>
                   <p className="font-body text-text-muted text-base leading-relaxed mb-6">
                     {service.description}
                   </p>
