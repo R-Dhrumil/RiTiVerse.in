@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
+import MouseFollower from './components/MouseFollower';
 import { RouterProvider, useRouter } from './context/RouterContext';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
@@ -38,6 +39,9 @@ function PageContent() {
 
   return (
     <div className="min-h-screen bg-background text-text-main font-sans selection:bg-accent-warm selection:text-text-main flex flex-col justify-between relative">
+      {/* Interactive Cursor Follower */}
+      <MouseFollower />
+
       {/* Sticky Top Navbar */}
       <Navbar />
 

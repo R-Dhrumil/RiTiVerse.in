@@ -41,12 +41,12 @@ export default function Navbar() {
             : 'glass-header py-2.5 sm:py-3'
         }`}
       >
-        <div className="flex justify-between items-center">
+        <div className="relative flex justify-between items-center">
           {/* Minimal Clean Logo */}
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2.5 group cursor-pointer"
+            className="flex items-center gap-2.5 group cursor-pointer z-10"
           >
             <div className="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center group-hover:scale-105 transition-all shadow-xs">
               <Terminal className="w-3.5 h-3.5 text-amber-400" />
@@ -56,8 +56,8 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Minimal Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-1.5" aria-label="Main Navigation">
+          {/* Minimal Desktop Nav Links (Precisely Centered) */}
+          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 z-10" aria-label="Main Navigation">
             {navLinks.map((link) => {
               const isActive =
                 link.path === '/'
@@ -88,26 +88,29 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Desktop Right CTA Button */}
-          <div className="hidden md:flex items-center">
-            <Link
-              to="/contact"
-              onClick={() => handleLinkClick('/contact')}
-              className="bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <span>Get a Quote</span>
-              <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
-            </Link>
-          </div>
+          {/* Right Actions: Desktop CTA & Mobile Hamburger */}
+          <div className="flex items-center gap-2 z-10">
+            {/* Desktop Right CTA Button */}
+            <div className="hidden md:flex items-center">
+              <Link
+                to="/contact"
+                onClick={() => handleLinkClick('/contact')}
+                className="bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Get a Quote</span>
+                <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+              </Link>
+            </div>
 
-          {/* Mobile Hamburger Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-slate-700 hover:text-slate-900 p-1.5 rounded-full hover:bg-slate-100/70 transition-colors cursor-pointer"
-            aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-slate-700 hover:text-slate-900 p-1.5 rounded-full hover:bg-slate-100/70 transition-colors cursor-pointer"
+              aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
       </div>
 
