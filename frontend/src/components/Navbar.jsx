@@ -15,6 +15,7 @@ export default function Navbar() {
     { name: 'Services', path: '/services' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Blog', path: '/blog' },
+    {name: 'contact us', path:'/contact'}
   ];
 
   useEffect(() => {
