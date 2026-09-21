@@ -6,15 +6,9 @@ import {
   ShoppingBag, 
   Server, 
   ArrowRight, 
-  CheckCircle2,
-  Sliders, 
-  Key, 
-  Zap, 
-  UserCheck,
-  ShieldCheck,
-  Sparkles
+  CheckCircle2
 } from 'lucide-react';
-import { SERVICES, WHY_CHOOSE_US } from '../constants/content';
+import { SERVICES } from '../constants/content';
 import { Link } from '../context/RouterContext';
 
 const serviceIconMap = {
@@ -22,13 +16,6 @@ const serviceIconMap = {
   layout_dashboard: LayoutDashboard,
   shopping_bag: ShoppingBag,
   server: Server
-};
-
-const pillarIconMap = {
-  sliders: Sliders,
-  key: Key,
-  zap: Zap,
-  user_check: UserCheck
 };
 
 export default function Services() {
@@ -61,7 +48,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12"
+          className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-main tracking-tight">
             Custom Web Software Built for Complete Autonomy
@@ -69,35 +56,6 @@ export default function Services() {
           <p className="font-body text-base sm:text-lg text-text-muted mt-3.5 leading-relaxed">
             Every platform we engineer pairs modern architecture with an intuitive admin dashboard, giving your business 100% control without monthly vendor lock-in.
           </p>
-        </motion.div>
-
-        {/* Integrated Why Us Value Strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16"
-        >
-          {WHY_CHOOSE_US.map((item, idx) => {
-            const IconComp = pillarIconMap[item.icon] || Sliders;
-            return (
-              <div
-                key={idx}
-                className="bg-background border border-slate-200/90 rounded-xl p-5 hover:border-amber-400/80 hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-surface-container-low border border-slate-200 flex items-center justify-center mb-3.5 group-hover:bg-slate-900 group-hover:text-white transition-colors duration-200">
-                  <IconComp className="w-5 h-5 text-slate-700 group-hover:text-amber-400 transition-colors" />
-                </div>
-                <h3 className="font-headline text-base font-bold text-text-main mb-1.5">
-                  {item.title}
-                </h3>
-                <p className="font-body text-sm text-text-muted leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
-            );
-          })}
         </motion.div>
 
         {/* 2x2 Services Offerings Matrix */}
