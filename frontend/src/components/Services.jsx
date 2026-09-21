@@ -6,7 +6,7 @@ import {
   ShoppingBag, 
   Server, 
   ArrowRight, 
-  CheckCircle2
+  CheckCircle2,
 } from 'lucide-react';
 import { SERVICES } from '../constants/content';
 import { Link } from '../context/RouterContext';

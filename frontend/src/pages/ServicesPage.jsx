@@ -369,7 +369,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Box */}
-      <section className="px-gutter max-w-container-max mx-auto">
+      <section className="px-gutter max-w-container-max mx-auto pb-16 md:pb-24">
         <div className="bg-slate-900 text-white rounded-3xl p-10 md:p-14 text-center relative overflow-hidden shadow-2xl">
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold mb-3 text-white">
             Ready to Build Your Custom Platform?
