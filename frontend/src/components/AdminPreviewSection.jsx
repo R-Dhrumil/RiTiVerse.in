@@ -33,7 +33,7 @@ export default function AdminPreviewSection() {
   };
 
   return (
-    <section id="admin-control" className="pt-12 sm:pt-16 pb-16 sm:pb-20 px-gutter bg-surface-bright relative z-20 border-t border-b border-slate-200/80 overflow-hidden">
+    <section id="admin-control" className="pt-16 sm:pt-20 pb-16 sm:pb-20 px-gutter bg-surface-bright relative z-20 border-b border-slate-200/80 overflow-hidden">
       <div className="max-w-container-max mx-auto">
         {/* Section Header */}
         <motion.div

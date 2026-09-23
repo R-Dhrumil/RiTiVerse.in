@@ -27,13 +27,13 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-start pt-28 sm:pt-32 pb-10 sm:pb-12 px-gutter w-full overflow-hidden bg-editorial-grid"
+      className="relative min-h-screen min-h-[100dvh] flex flex-col justify-between items-center pt-24 sm:pt-28 pb-8 sm:pb-12 px-gutter w-full overflow-hidden bg-editorial-grid"
     >
       {/* Humanto-style Warm Peach & Amber Ambient Gradient Haze at the bottom */}
       <div className="absolute inset-x-0 bottom-0 h-[520px] bg-peach-glow pointer-events-none z-0" />
 
       {/* Main Container */}
-      <div className="relative z-10 max-w-container-max mx-auto w-full flex flex-col items-center">
+      <div className="relative z-10 max-w-container-max mx-auto w-full flex flex-col items-center my-auto">
 
 
         {/* Centered Headline */}
