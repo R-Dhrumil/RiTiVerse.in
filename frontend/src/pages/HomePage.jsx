@@ -25,7 +25,7 @@ export default function HomePage() {
       <Testimonials />
 
       {/* Contact Section */}
-      <ContactForm />
+      <ContactForm isHomePage={true} />
     </div>
   );
 }

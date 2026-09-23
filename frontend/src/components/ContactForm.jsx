@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, CheckCircle2, AlertCircle, Loader2, Mail, User, MessageSquare, Briefcase, Clock } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Loader2, Mail, User, MessageSquare, Briefcase, Clock, Sparkles } from 'lucide-react';
 import { supabase } from '../utils/supabaseClient';
 
-export default function ContactForm() {
+export default function ContactForm({ isHomePage = false, className = '' }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -99,7 +99,14 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-16 px-gutter bg-background relative z-10">
+    <section 
+      id="contact" 
+      className={`relative z-10 px-gutter ${
+        isHomePage
+          ? 'pt-14 sm:pt-18 pb-20 sm:pb-28 md:pb-32 bg-background'
+          : 'py-12 md:py-16 bg-background'
+      } ${className}`}
+    >
       <div className="max-w-container-max mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Direct Contact & Info */}
@@ -110,6 +117,12 @@ export default function ContactForm() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-5 flex flex-col gap-5"
           >
+            {isHomePage && (
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-amber-800 text-xs font-semibold w-fit">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                <span>Free Technical Consultation & Estimate</span>
+              </div>
+            )}
             <h2 className="font-headline text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text-main tracking-tight leading-[1.15]">
               Let’s Build Your Solution.
             </h2>

@@ -36,10 +36,10 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-3 sm:px-6 pt-3 sm:pt-4 transition-all duration-300">
       {/* Floating Island with Glassmorphism */}
       <div
-        className={`pointer-events-auto max-w-5xl mx-auto rounded-full transition-all duration-300 px-4 sm:px-6 ${
+        className={`pointer-events-auto max-w-7xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-8 ${
           isScrolled
             ? 'glass-header-scrolled py-2 sm:py-2.5'
-            : 'glass-header py-2.5 sm:py-3'
+            : 'glass-header py-2.5 sm:py-3.5'
         }`}
       >
         <div className="relative flex justify-between items-center">
@@ -58,7 +58,7 @@ export default function Navbar() {
           </Link>
 
           {/* Minimal Desktop Nav Links (Precisely Centered) */}
-          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 z-10" aria-label="Main Navigation">
+          <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1.5 sm:gap-2 z-10" aria-label="Main Navigation">
             {navLinks.map((link) => {
               const isActive =
                 link.path === '/'
@@ -70,7 +70,7 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => handleLinkClick(link.path)}
-                  className={`relative text-xs sm:text-sm px-3.5 py-1.5 rounded-full font-medium transition-all duration-150 cursor-pointer ${
+                  className={`relative text-xs sm:text-sm px-4 py-1.5 rounded-full font-medium transition-all duration-150 cursor-pointer ${
                     isActive
                       ? 'text-slate-950 font-bold'
                       : 'text-slate-600 hover:text-slate-950 hover:bg-slate-900/5'
@@ -90,13 +90,13 @@ export default function Navbar() {
           </nav>
 
           {/* Right Actions: Desktop CTA & Mobile Hamburger */}
-          <div className="flex items-center gap-2 z-10">
+          <div className="flex items-center gap-3 z-10">
             {/* Desktop Right CTA Button */}
             <div className="hidden md:flex items-center">
               <Link
                 to="/contact"
                 onClick={() => handleLinkClick('/contact')}
-                className="bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                className="bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-5 py-2 rounded-full transition-all flex items-center gap-1.5 shadow-sm hover:shadow-md cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Get a Quote</span>
                 <ArrowRight className="w-3.5 h-3.5 text-amber-400" />

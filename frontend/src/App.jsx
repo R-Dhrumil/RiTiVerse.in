@@ -38,15 +38,15 @@ function PageContent() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-text-main font-sans selection:bg-accent-warm selection:text-text-main flex flex-col justify-between relative">
+    <div className="min-h-screen bg-slate-950 text-text-main font-sans selection:bg-accent-warm selection:text-text-main flex flex-col justify-between relative">
       {/* Interactive Cursor Follower */}
       <MouseFollower />
 
       {/* Sticky Top Navbar */}
       <Navbar />
 
-      {/* Dynamic Dedicated Page View */}
-      <main className="flex-grow">
+      {/* Dynamic Dedicated Page View with Rounded Bottom Sheet */}
+      <main className="flex-grow relative z-10 bg-background rounded-b-[36px] sm:rounded-b-[48px] md:rounded-b-[56px] shadow-[0_20px_50px_rgba(0,0,0,0.25)] overflow-hidden">
         {renderPage()}
       </main>
 
