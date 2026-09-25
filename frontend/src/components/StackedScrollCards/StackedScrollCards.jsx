@@ -17,7 +17,7 @@ import './StackedScrollCards.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Curated default service cards matching the video reference layout & color themes
+// Curated default service cards matching Nirmaan Softworks frontend theme & design tokens
 export const DEFAULT_SERVICES_CARDS = [
   {
     id: 'web-apps',
@@ -31,12 +31,12 @@ export const DEFAULT_SERVICES_CARDS = [
       cardBg: 'bg-white',
       textColor: 'text-slate-900',
       descriptionColor: 'text-slate-600',
-      badgeBg: 'bg-slate-100 text-slate-800 border-slate-200',
+      badgeBg: 'bg-amber-50 text-amber-900 border-amber-200/90 font-bold',
       pillBg: 'bg-slate-50 border-slate-200/90 text-slate-800',
       pillLabelColor: 'text-slate-500',
-      pillIconColor: 'text-amber-600',
+      pillIconColor: 'text-amber-500',
       borderColor: 'border-slate-200/90',
-      ctaBg: 'bg-slate-950 text-white hover:bg-slate-800',
+      ctaBg: 'bg-slate-950 text-white hover:bg-slate-900 shadow-md shadow-slate-950/15',
       footerLabel: 'Full Stack Ownership',
       footerValue: 'React + Node + PostgreSQL',
     },
@@ -57,15 +57,15 @@ export const DEFAULT_SERVICES_CARDS = [
     image: '/images/service-admin-portal.jpg',
     imageAlt: 'Interactive Admin Console with Realtime Analytics',
     theme: {
-      cardBg: 'bg-[#ea580c]', // Signature vibrant terracotta orange from video reference
+      cardBg: 'bg-[#0f172a]', // Signature Deep Slate 900 (matches Admin Console & Footer)
       textColor: 'text-white',
-      descriptionColor: 'text-orange-100',
-      badgeBg: 'bg-white/20 text-white border-white/30 backdrop-blur-xs',
-      pillBg: 'bg-white/15 border-white/25 text-white backdrop-blur-xs',
-      pillLabelColor: 'text-orange-100',
-      pillIconColor: 'text-white',
-      borderColor: 'border-orange-400/40',
-      ctaBg: 'bg-white text-slate-950 hover:bg-orange-50 font-bold',
+      descriptionColor: 'text-slate-300',
+      badgeBg: 'bg-amber-400/15 text-amber-300 border-amber-400/30 backdrop-blur-xs font-bold',
+      pillBg: 'bg-white/10 border-white/15 text-white backdrop-blur-xs',
+      pillLabelColor: 'text-slate-400',
+      pillIconColor: 'text-amber-400',
+      borderColor: 'border-slate-800',
+      ctaBg: 'bg-amber-400 text-slate-950 hover:bg-amber-300 font-bold shadow-lg shadow-amber-400/20',
       footerLabel: 'Direct Management',
       footerValue: 'Role-Based Access Control',
     },
@@ -86,15 +86,15 @@ export const DEFAULT_SERVICES_CARDS = [
     image: '/images/service-ecommerce.jpg',
     imageAlt: 'Next-Gen E-Commerce Platform Display',
     theme: {
-      cardBg: 'bg-[#0b0f17]', // Sleek midnight onyx from video reference
+      cardBg: 'bg-gradient-to-br from-[#d97706] to-[#b45309]', // Brand Signature Warm Amber
       textColor: 'text-white',
-      descriptionColor: 'text-slate-400',
-      badgeBg: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30',
-      pillBg: 'bg-white/5 border-white/10 text-white',
-      pillLabelColor: 'text-slate-400',
-      pillIconColor: 'text-emerald-400',
-      borderColor: 'border-white/10',
-      ctaBg: 'bg-white text-slate-950 hover:bg-slate-100 font-bold',
+      descriptionColor: 'text-amber-100',
+      badgeBg: 'bg-black/25 text-white border-white/30 backdrop-blur-xs font-bold',
+      pillBg: 'bg-white/15 border-white/25 text-white backdrop-blur-xs',
+      pillLabelColor: 'text-amber-100',
+      pillIconColor: 'text-amber-200',
+      borderColor: 'border-amber-400/30',
+      ctaBg: 'bg-slate-950 text-white hover:bg-slate-900 font-bold shadow-xl shadow-black/25',
       footerLabel: 'Checkout Pipeline',
       footerValue: 'Stripe + Razorpay Ready',
     },
@@ -115,15 +115,15 @@ export const DEFAULT_SERVICES_CARDS = [
     image: '/images/service-cloud-backend.jpg',
     imageAlt: 'Cloud Server Architecture and Database Systems',
     theme: {
-      cardBg: 'bg-[#0f172a]', // Modern Cyber Slate
+      cardBg: 'bg-slate-950', // Executive Obsidian Slate (Theme Dark)
       textColor: 'text-white',
       descriptionColor: 'text-slate-400',
-      badgeBg: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
+      badgeBg: 'bg-amber-400/10 text-amber-400 border-amber-400/25 font-bold',
       pillBg: 'bg-white/5 border-white/10 text-white',
       pillLabelColor: 'text-slate-400',
-      pillIconColor: 'text-cyan-400',
-      borderColor: 'border-cyan-500/20',
-      ctaBg: 'bg-cyan-500 text-slate-950 hover:bg-cyan-400 font-bold',
+      pillIconColor: 'text-amber-400',
+      borderColor: 'border-slate-800',
+      ctaBg: 'bg-white text-slate-950 hover:bg-slate-100 font-bold shadow-lg shadow-white/10',
       footerLabel: 'Database & Cloud',
       footerValue: 'Sub-50ms REST / GraphQL',
     },
@@ -146,6 +146,7 @@ export default function StackedScrollCards({
 }) {
   const sectionRef = useRef(null);
   const containerRef = useRef(null);
+  const headerRef = useRef(null);
   const cardsRef = useRef([]);
 
   let navigate;
@@ -196,16 +197,17 @@ export default function StackedScrollCards({
             return;
           }
 
-          // Stepped vertical offset and subtle scale down for physical deck stack
-          const stepY = isDesktop ? -26 : isTablet ? -20 : -14;
-          const scaleStep = isDesktop ? 0.05 : isTablet ? 0.04 : 0.03;
-          const scrollDistancePerCard = isMobile ? 650 : isTablet ? 750 : 850;
+          // Stepped vertical offset and subtle scale down for physical deck stack (Sheryians reference)
+          const stepY = isDesktop ? -36 : isTablet ? -24 : -16;
+          const scaleStep = isDesktop ? 0.032 : isTablet ? 0.028 : 0.02;
+          const scrollDistancePerCard = isMobile ? 700 : isTablet ? 850 : 950;
 
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: sectionRef.current,
               start: 'top top',
-              end: () => `+=${(activeCards.length - 1) * scrollDistancePerCard}`,
+              // Use activeCards.length so there is full extra scroll distance for the last card to stay in view
+              end: () => `+=${activeCards.length * scrollDistancePerCard}`,
               pin: true,
               scrub: 0.8,
               anticipatePin: 1,
@@ -229,12 +231,26 @@ export default function StackedScrollCards({
               }
             );
 
+            // Simultaneously hide the header as the FIRST card swap happens
+            if (i === 1 && headerRef.current) {
+              tl.to(
+                headerRef.current,
+                {
+                  yPercent: -120,
+                  opacity: 0,
+                  ease: 'none',
+                  duration: 0.6,
+                },
+                '<' // sync with the card swap start
+              );
+            }
+
             // All previously entered cards step up and scale down slightly
             for (let k = 0; k < i; k++) {
               const prevCard = activeCards[k];
               const stepsBehind = i - k;
               const targetY = stepsBehind * stepY;
-              const targetScale = Math.max(0.82, 1 - stepsBehind * scaleStep);
+              const targetScale = Math.max(0.84, 1 - stepsBehind * scaleStep);
 
               tl.to(
                 prevCard,
@@ -248,6 +264,10 @@ export default function StackedScrollCards({
               );
             }
           }
+
+          // CRITICAL: Hold the last card fully visible at the end of the scroll
+          // This keeps the final card pinned and fully readable before unpinning
+          tl.to({}, { duration: 0.8 });
         }
       );
     }, sectionRef);
@@ -259,27 +279,23 @@ export default function StackedScrollCards({
     <section
       ref={sectionRef}
       id="services"
-      className="stacked-cards-section relative z-20 scroll-mt-20 selection:bg-amber-400 selection:text-slate-950"
+      className="stacked-cards-section relative z-20 scroll-mt-20 selection:bg-amber-400 selection:text-slate-950 p-9"
     >
       {/* Anchor for Why Us navigation */}
       <div id="why-us" className="-top-24 relative" />
 
-      {/* Top Header matching reference video */}
-      <div className="max-w-4xl mx-auto text-center mb-8 md:mb-12 px-4">
+      {/* Top Header — slides up & fades out when the second card enters */}
+      <div ref={headerRef} className="stacked-cards-header max-w-3xl mx-auto text-center px-4">
         {sectionBadge && (
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ea580c] text-white text-xs sm:text-sm font-semibold tracking-wide uppercase mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 shadow-sm text-xs font-mono uppercase tracking-widest text-amber-400 mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
             <span>{sectionBadge}</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
           </div>
         )}
-        <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        <h2 className="font-headline text-2xl sm:text-3xl md:text-[34px] font-extrabold text-slate-900 tracking-tight leading-tight">
           {sectionTitle}
         </h2>
-        {sectionSubtitle && (
-          <p className="font-body text-base sm:text-lg text-slate-600 mt-3 max-w-2xl mx-auto leading-relaxed">
-            {sectionSubtitle}
-          </p>
-        )}
       </div>
 
       {/* Stacked Cards Frame */}
@@ -290,10 +306,10 @@ export default function StackedScrollCards({
             <article
               key={card.id || index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className={`stacked-card ${theme.cardBg} ${theme.textColor} border ${theme.borderColor} p-5 sm:p-7 md:p-8 lg:p-9 flex flex-col md:flex-row gap-6 md:gap-8 items-stretch justify-between`}
+              className={`stacked-card ${theme.cardBg} ${theme.textColor} border ${theme.borderColor} p-5 sm:p-6 md:p-8 lg:p-9 xl:p-10 flex flex-col md:flex-row gap-5 md:gap-7 lg:gap-9 items-stretch justify-between`}
             >
               {/* Left Column: Visual Media Display */}
-              <div className="w-full md:w-[44%] lg:w-[42%] flex-shrink-0 h-[220px] sm:h-[260px] md:h-full relative rounded-2xl md:rounded-[22px] overflow-hidden bg-slate-950 shadow-inner group">
+              <div className="w-full md:w-[46%] lg:w-[45%] flex-shrink-0 h-[220px] sm:h-[260px] md:h-full relative rounded-2xl md:rounded-[24px] overflow-hidden bg-slate-950 shadow-inner group">
                 <img
                   src={card.image}
                   alt={card.imageAlt || card.title}
@@ -304,59 +320,59 @@ export default function StackedScrollCards({
 
                 {/* Status Badge overlay on image */}
                 <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                  <span className="text-[11px] sm:text-xs font-mono font-bold tracking-wider px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white border border-white/20">
+                  <span className="text-xs font-mono font-bold tracking-wider px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md text-white border border-white/20">
                     SERVICE #{card.stepNumber}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/30 backdrop-blur-xs">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-400 bg-slate-950/85 px-2.5 py-0.5 rounded-full border border-amber-400/30 backdrop-blur-xs">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                     Production Ready
                   </span>
                 </div>
               </div>
 
               {/* Right Column: Card Content & Actions */}
-              <div className="flex-1 flex flex-col justify-between min-w-0">
+              <div className="flex-1 flex flex-col justify-between min-w-0 py-0.5">
                 {/* Header Information */}
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-3">
                     <span
-                      className={`text-xs sm:text-sm font-semibold px-3 py-1 rounded-full border ${theme.badgeBg}`}
+                      className={`text-xs sm:text-sm font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${theme.badgeBg}`}
                     >
                       {card.badge}
                     </span>
-                    <span className="text-xs font-mono opacity-60">
+                    <span className="text-xs sm:text-sm font-mono opacity-60">
                       {card.stepNumber} / 0{cards.length}
                     </span>
                   </div>
 
-                  <h3 className="font-headline text-xl sm:text-2xl lg:text-[28px] font-extrabold tracking-tight leading-snug">
+                  <h3 className="font-headline text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-extrabold tracking-tight leading-snug">
                     {card.title}
                   </h3>
 
                   <p
-                    className={`font-body text-sm sm:text-base leading-relaxed mt-2.5 ${theme.descriptionColor}`}
+                    className={`font-body text-xs sm:text-sm lg:text-base leading-relaxed mt-2 ${theme.descriptionColor}`}
                   >
                     {card.description}
                   </p>
                 </div>
 
                 {/* 3 Key Spec Pills (Exact match to reference video) */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-3 my-4 sm:my-5">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3.5 my-3.5 sm:my-4">
                   {card.metrics.map((metric, mIdx) => {
                     const Icon = metric.icon;
                     return (
                       <div
                         key={mIdx}
-                        className={`p-2.5 sm:p-3 rounded-xl border flex flex-col justify-center ${theme.pillBg}`}
+                        className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border flex flex-col justify-center ${theme.pillBg}`}
                       >
                         <div className="flex items-center gap-1.5 mb-1">
                           <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 ${theme.pillIconColor}`} />
-                          <span className="font-extrabold text-xs sm:text-sm truncate">
+                          <span className="font-extrabold text-xs sm:text-sm lg:text-base truncate">
                             {metric.value}
                           </span>
                         </div>
                         <span
-                          className={`text-[10px] sm:text-xs font-medium truncate ${theme.pillLabelColor}`}
+                          className={`text-[10px] sm:text-xs font-semibold truncate ${theme.pillLabelColor}`}
                         >
                           {metric.label}
                         </span>
@@ -366,14 +382,14 @@ export default function StackedScrollCards({
                 </div>
 
                 {/* Bottom Value & Action Row */}
-                <div className="pt-3 sm:pt-4 border-t border-current/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
+                <div className="pt-3 sm:pt-4 border-t border-current/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <span
                       className={`text-[11px] sm:text-xs uppercase tracking-wider block font-semibold ${theme.pillLabelColor}`}
                     >
                       {theme.footerLabel}
                     </span>
-                    <span className="font-extrabold text-sm sm:text-base tracking-tight">
+                    <span className="font-extrabold text-sm sm:text-base lg:text-lg tracking-tight">
                       {theme.footerValue}
                     </span>
                   </div>
@@ -389,10 +405,10 @@ export default function StackedScrollCards({
                         navigate(card.ctaLink);
                       }
                     }}
-                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-sm hover:scale-[1.03] active:scale-[0.98] ${theme.ctaBg}`}
+                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-sm hover:scale-[1.03] active:scale-[0.98] ${theme.ctaBg}`}
                   >
                     <span>{card.ctaText}</span>
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </a>
                 </div>
               </div>
