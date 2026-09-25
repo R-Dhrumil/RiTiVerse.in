@@ -163,17 +163,13 @@ export default function StackedScrollCards({
       const activeCards = cardsRef.current.filter(Boolean);
       if (activeCards.length <= 1) return;
 
-      // Base z-index and initial positioning
+      // Base z-index and initial end-to-end positioning (card 2 sticks to end of card 1, etc.)
       activeCards.forEach((card, index) => {
         gsap.set(card, {
           zIndex: index + 1,
           transformOrigin: 'center top',
+          yPercent: index * 100,
         });
-        if (index > 0) {
-          gsap.set(card, {
-            yPercent: 100,
-          });
-        }
       });
 
       // Responsive matchMedia for responsive animations and reduced motion support
@@ -215,21 +211,24 @@ export default function StackedScrollCards({
             },
           });
 
-          // Stacking sequence: each incoming card covers the previous one,
-          // while all existing stacked cards shift slightly up and scale down
+          // Stacking sequence: cards advance sequentially, with each next card
+          // attached directly to the bottom end of the previous one as it scrolls up
           for (let i = 1; i < activeCards.length; i++) {
-            const currentCard = activeCards[i];
+            // All remaining cards (j >= i) move up by 100% together (connected end-to-end train)
+            for (let j = i; j < activeCards.length; j++) {
+              const movingCard = activeCards[j];
+              const targetYPercent = (j - i) * 100;
 
-            // Incoming card moves upward into full view
-            tl.fromTo(
-              currentCard,
-              { yPercent: 100 },
-              {
-                yPercent: 0,
-                ease: 'none',
-                duration: 1,
-              }
-            );
+              tl.to(
+                movingCard,
+                {
+                  yPercent: targetYPercent,
+                  ease: 'none',
+                  duration: 1,
+                },
+                j === i ? undefined : '<' // sync all moving cards in this step
+              );
+            }
 
             // Simultaneously hide the header as the FIRST card swap happens
             if (i === 1 && headerRef.current) {
@@ -279,21 +278,21 @@ export default function StackedScrollCards({
     <section
       ref={sectionRef}
       id="services"
-      className="stacked-cards-section relative z-20 scroll-mt-20 selection:bg-amber-400 selection:text-slate-950 p-9"
+      className="stacked-cards-section relative z-20 scroll-mt-20 selection:bg-amber-400 selection:text-slate-950"
     >
       {/* Anchor for Why Us navigation */}
-      <div id="why-us" className="-top-24 relative" />
+      <div id="why-us" className="absolute top-0 left-0 pointer-events-none" />
 
       {/* Top Header — slides up & fades out when the second card enters */}
       <div ref={headerRef} className="stacked-cards-header max-w-3xl mx-auto text-center px-4">
         {sectionBadge && (
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 shadow-sm text-xs font-mono uppercase tracking-widest text-amber-400 mb-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 border border-slate-800 shadow-sm text-xs font-mono uppercase tracking-widest text-amber-400 mb-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
             <span>{sectionBadge}</span>
             <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
           </div>
         )}
-        <h2 className="font-headline text-2xl sm:text-3xl md:text-[34px] font-extrabold text-slate-900 tracking-tight leading-tight">
+        <h2 className="font-headline text-2xl sm:text-3xl md:text-[30px] font-extrabold text-slate-900 tracking-tight leading-tight">
           {sectionTitle}
         </h2>
       </div>
@@ -306,10 +305,10 @@ export default function StackedScrollCards({
             <article
               key={card.id || index}
               ref={(el) => (cardsRef.current[index] = el)}
-              className={`stacked-card ${theme.cardBg} ${theme.textColor} border ${theme.borderColor} p-5 sm:p-6 md:p-8 lg:p-9 xl:p-10 flex flex-col md:flex-row gap-5 md:gap-7 lg:gap-9 items-stretch justify-between`}
+              className={`stacked-card ${theme.cardBg} ${theme.textColor} border ${theme.borderColor} p-4 sm:p-5 md:p-6 lg:p-7 flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-7 items-stretch justify-between`}
             >
               {/* Left Column: Visual Media Display */}
-              <div className="w-full md:w-[46%] lg:w-[45%] flex-shrink-0 h-[220px] sm:h-[260px] md:h-full relative rounded-2xl md:rounded-[24px] overflow-hidden bg-slate-950 shadow-inner group">
+              <div className="w-full md:w-[46%] lg:w-[45%] flex-shrink-0 h-[200px] sm:h-[240px] md:h-full relative rounded-2xl md:rounded-[22px] overflow-hidden bg-slate-950 shadow-inner group">
                 <img
                   src={card.image}
                   alt={card.imageAlt || card.title}
@@ -334,7 +333,7 @@ export default function StackedScrollCards({
               <div className="flex-1 flex flex-col justify-between min-w-0 py-0.5">
                 {/* Header Information */}
                 <div>
-                  <div className="flex items-center justify-between gap-3 mb-3">
+                  <div className="flex items-center justify-between gap-3 mb-2.5">
                     <span
                       className={`text-xs sm:text-sm font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${theme.badgeBg}`}
                     >
@@ -345,28 +344,28 @@ export default function StackedScrollCards({
                     </span>
                   </div>
 
-                  <h3 className="font-headline text-xl sm:text-2xl lg:text-[28px] xl:text-[32px] font-extrabold tracking-tight leading-snug">
+                  <h3 className="font-headline text-lg sm:text-xl md:text-2xl lg:text-[26px] xl:text-[28px] font-extrabold tracking-tight leading-snug">
                     {card.title}
                   </h3>
 
                   <p
-                    className={`font-body text-xs sm:text-sm lg:text-base leading-relaxed mt-2 ${theme.descriptionColor}`}
+                    className={`font-body text-xs sm:text-sm leading-relaxed mt-1.5 ${theme.descriptionColor}`}
                   >
                     {card.description}
                   </p>
                 </div>
 
                 {/* 3 Key Spec Pills (Exact match to reference video) */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-3.5 my-3.5 sm:my-4">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 my-2.5 sm:my-3">
                   {card.metrics.map((metric, mIdx) => {
                     const Icon = metric.icon;
                     return (
                       <div
                         key={mIdx}
-                        className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border flex flex-col justify-center ${theme.pillBg}`}
+                        className={`p-2 sm:p-2.5 rounded-xl sm:rounded-2xl border flex flex-col justify-center ${theme.pillBg}`}
                       >
-                        <div className="flex items-center gap-1.5 mb-1">
-                          <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 ${theme.pillIconColor}`} />
+                        <div className="flex items-center gap-1.5 mb-0.5">
+                          <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${theme.pillIconColor}`} />
                           <span className="font-extrabold text-xs sm:text-sm lg:text-base truncate">
                             {metric.value}
                           </span>
@@ -382,7 +381,7 @@ export default function StackedScrollCards({
                 </div>
 
                 {/* Bottom Value & Action Row */}
-                <div className="pt-3 sm:pt-4 border-t border-current/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="pt-2.5 sm:pt-3 border-t border-current/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
                   <div>
                     <span
                       className={`text-[11px] sm:text-xs uppercase tracking-wider block font-semibold ${theme.pillLabelColor}`}
@@ -405,7 +404,7 @@ export default function StackedScrollCards({
                         navigate(card.ctaLink);
                       }
                     }}
-                    className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-sm hover:scale-[1.03] active:scale-[0.98] ${theme.ctaBg}`}
+                    className={`inline-flex items-center justify-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-sm hover:scale-[1.03] active:scale-[0.98] ${theme.ctaBg}`}
                   >
                     <span>{card.ctaText}</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />

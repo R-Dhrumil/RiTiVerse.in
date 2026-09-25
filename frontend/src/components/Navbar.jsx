@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, Terminal } from 'lucide-react';
 import { COMPANY_INFO } from '../constants/content';
@@ -6,8 +6,10 @@ import { Link, useRouter } from '../context/RouterContext';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { currentPath, navigate } = useRouter();
+  const lastScrollY = useRef(0);
 
   // Minimal streamlined nav links
   const navLinks = [
@@ -20,7 +22,25 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentY = window.scrollY;
+      const diff = currentY - lastScrollY.current;
+
+      // Update background glass styling
+      setIsScrolled(currentY > 20);
+
+      // Always show when close to top
+      if (currentY < 60) {
+        setIsHidden(false);
+      } else if (diff > 8) {
+        // User is scrolling DOWN -> Navbar goes UP (hidden)
+        setIsHidden(true);
+        setMobileMenuOpen(false);
+      } else if (diff < -8) {
+        // User is scrolling UP -> Navbar goes DOWN (visible)
+        setIsHidden(false);
+      }
+
+      lastScrollY.current = currentY;
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -33,14 +53,17 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-3 sm:px-6 pt-3 sm:pt-4 transition-all duration-300">
+    <motion.header
+      animate={{ y: isHidden ? '-130%' : '0%' }}
+      transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-3 sm:px-6 pt-3 sm:pt-4"
+    >
       {/* Floating Island with Glassmorphism */}
       <div
-        className={`pointer-events-auto max-w-7xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-8 ${
-          isScrolled
+        className={`pointer-events-auto max-w-7xl mx-auto rounded-full transition-all duration-300 px-5 sm:px-8 ${isScrolled
             ? 'glass-header-scrolled py-2 sm:py-2.5'
             : 'glass-header py-2.5 sm:py-3.5'
-        }`}
+          }`}
       >
         <div className="relative flex justify-between items-center">
           {/* Minimal Clean Logo */}
@@ -70,11 +93,10 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => handleLinkClick(link.path)}
-                  className={`relative text-xs sm:text-sm px-4 py-1.5 rounded-full font-medium transition-all duration-150 cursor-pointer ${
-                    isActive
+                  className={`relative text-xs sm:text-sm px-4 py-1.5 rounded-full font-medium transition-all duration-150 cursor-pointer ${isActive
                       ? 'text-slate-950 font-bold'
                       : 'text-slate-600 hover:text-slate-950 hover:bg-slate-900/5'
-                  }`}
+                    }`}
                 >
                   {isActive && (
                     <motion.div
@@ -137,11 +159,10 @@ export default function Navbar() {
                     key={link.name}
                     to={link.path}
                     onClick={() => handleLinkClick(link.path)}
-                    className={`text-sm py-2.5 px-3.5 rounded-xl font-medium transition-colors ${
-                      isActive
+                    className={`text-sm py-2.5 px-3.5 rounded-xl font-medium transition-colors ${isActive
                         ? 'bg-amber-50 text-amber-800 font-semibold'
                         : 'text-slate-700 hover:bg-slate-100/60'
-                    }`}
+                      }`}
                   >
                     {link.name}
                   </Link>
@@ -160,6 +181,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
