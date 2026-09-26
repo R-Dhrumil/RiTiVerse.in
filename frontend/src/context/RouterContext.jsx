@@ -16,7 +16,7 @@ export function RouterProvider({ children }) {
   useEffect(() => {
     const handleLocationChange = () => {
       setCurrentPath(getInitialPath());
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
     };
 
     window.addEventListener('popstate', handleLocationChange);
@@ -30,7 +30,7 @@ export function RouterProvider({ children }) {
   const navigate = (to) => {
     const target = to.startsWith('/') ? to : '/' + to;
     if (target === currentPath) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
       return;
     }
     window.history.pushState(null, '', '#' + target);

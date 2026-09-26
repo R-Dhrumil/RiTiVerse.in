@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import MobileBottomNav from './components/MobileBottomNav';
 // import MouseFollower from './components/MouseFollower';
 import { RouterProvider, useRouter } from './context/RouterContext';
+import SmoothScroll from './components/SmoothScroll';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import PortfolioPage from './pages/PortfolioPage';
@@ -62,7 +63,9 @@ function PageContent() {
 export default function App() {
   return (
     <RouterProvider>
-      <PageContent />
+      <SmoothScroll>
+        <PageContent />
+      </SmoothScroll>
     </RouterProvider>
   );
 }

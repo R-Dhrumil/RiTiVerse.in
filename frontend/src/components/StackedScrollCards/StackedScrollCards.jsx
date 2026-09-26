@@ -169,6 +169,7 @@ export default function StackedScrollCards({
           zIndex: index + 1,
           transformOrigin: 'center top',
           yPercent: index * 100,
+          force3D: true, // Permanent GPU acceleration prevents layer promotion glitch
         });
       });
 
@@ -196,17 +197,20 @@ export default function StackedScrollCards({
           // Stepped vertical offset and subtle scale down for physical deck stack (Sheryians reference)
           const stepY = isDesktop ? -36 : isTablet ? -24 : -16;
           const scaleStep = isDesktop ? 0.032 : isTablet ? 0.028 : 0.02;
-          const scrollDistancePerCard = isMobile ? 700 : isTablet ? 850 : 950;
+          const scrollDistancePerCard = isMobile ? 500 : isTablet ? 600 : 680;
+          const totalTransitions = activeCards.length - 1;
+          const settleDistance = isMobile ? 80 : 120;
 
           const tl = gsap.timeline({
             scrollTrigger: {
               trigger: sectionRef.current,
               start: 'top top',
-              // Use activeCards.length so there is full extra scroll distance for the last card to stay in view
-              end: () => `+=${activeCards.length * scrollDistancePerCard}`,
+              // Exact distance: only active transitions + brief natural settle for the final card
+              end: () => `+=${totalTransitions * scrollDistancePerCard + settleDistance}`,
               pin: true,
-              scrub: 0.8,
-              anticipatePin: 1,
+              pinSpacing: true,
+              scrub: true, // 1:1 direct sync with Lenis: every single subpixel of scroll immediately moves the cards
+              anticipatePin: 0,
               invalidateOnRefresh: true,
             },
           });
@@ -225,6 +229,7 @@ export default function StackedScrollCards({
                   yPercent: targetYPercent,
                   ease: 'none',
                   duration: 1,
+                  force3D: true,
                 },
                 j === i ? undefined : '<' // sync all moving cards in this step
               );
@@ -239,6 +244,7 @@ export default function StackedScrollCards({
                   opacity: 0,
                   ease: 'none',
                   duration: 0.6,
+                  force3D: true,
                 },
                 '<' // sync with the card swap start
               );
@@ -258,15 +264,15 @@ export default function StackedScrollCards({
                   scale: targetScale,
                   ease: 'none',
                   duration: 1,
+                  force3D: true,
                 },
                 '<' // run simultaneously with incoming card
               );
             }
           }
 
-          // CRITICAL: Hold the last card fully visible at the end of the scroll
-          // This keeps the final card pinned and fully readable before unpinning
-          tl.to({}, { duration: 0.8 });
+          // Brief, natural settle for the final card before smooth unpinning into next section
+          tl.to({}, { duration: 0.2 });
         }
       );
     }, sectionRef);
